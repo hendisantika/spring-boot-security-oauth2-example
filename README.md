@@ -10,5 +10,7 @@ To run this repo, please follow these command :
 
 2. Launch POSTMAN to generate TOKEN
 
+3. Accessing without Token
 
+4. Accessing Rescource With Token
 
