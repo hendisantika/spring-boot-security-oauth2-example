@@ -14,6 +14,8 @@ To run this repo, please follow these command :
 
     ![Header Tab](img/header.png "Header Tab")
 
+    ![Body Tab](img/body.png "Body Tab")
+
 3. Accessing without Token
 
     ![Accessing without Token](img/noauth.png "Accessing without Token")
