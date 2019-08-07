@@ -1,0 +1,126 @@
+{
+  "info": {
+    "_postman_id": "d42d2758-d8d4-4732-bbee-4f0fd349bdd4",
+    "name": "Spring Boot Security OAuth Example",
+    "description": "Spring Boot Security OAuth Example",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Generate Token",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "hendi-secret",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "hendi-client",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/x-www-form-urlencoded",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "username",
+              "value": "hendi",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "password",
+              "type": "text"
+            },
+            {
+              "key": "grant_type",
+              "value": "password",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:8080/oauth/token",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "oauth",
+            "token"
+          ]
+        },
+        "description": "Generate Token"
+      },
+      "response": []
+    },
+    {
+      "name": "Accessing Without Token",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/users/user",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "users",
+            "user"
+          ]
+        },
+        "description": "Accessing Without Token"
+      },
+      "response": []
+    },
+    {
+      "name": "Accessing With Token",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/users/user?access_token=05369009-d0e3-4d6d-aad9-ae7be41d707f",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "users",
+            "user"
+          ],
+          "query": [
+            {
+              "key": "access_token",
+              "value": "05369009-d0e3-4d6d-aad9-ae7be41d707f"
+            }
+          ]
+        },
+        "description": "Accessing With Token"
+      },
+      "response": []
+    }
+  ]
+}
