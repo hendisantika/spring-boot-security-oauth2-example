@@ -19,6 +19,7 @@ import org.springframework.security.oauth2.provider.approval.TokenStoreUserAppro
 import org.springframework.security.oauth2.provider.request.DefaultOAuth2RequestFactory;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
@@ -57,13 +58,14 @@ public class SecurityConfig {
                 .passwordEncoder(encoder());
     }
 
-    protected void configure(HttpSecurity http) throws Exception {
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
                 .anonymous().disable()
                 .authorizeRequests()
-//                .antMatchers("/api-docs/**").permitAll();
                 .requestMatchers("/api-docs/**").permitAll();
+        return http.build();
     }
 
     @Bean
