@@ -1,0 +1,17 @@
+services:
+  mysql:
+    image: mysql:9.3.0
+    container_name: mysql_oauth2
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=oauth
+      - MYSQL_USER=yu71
+      - MYSQL_PASSWORD=53cret
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    restart: always
+
+volumes:
+  mysql-data:
